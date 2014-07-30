@@ -18,7 +18,7 @@
   <div id="side">
     <!-- START_HIGHLIGHT -->
     <div id="cart">
-      <%= render @cart %>
+
     </div>
 
     <!-- END_HIGHLIGHT -->
@@ -29,6 +29,21 @@
       <li><a href="http://www..../contact">Contact</a></li>
     </ul>
   </div>
+
+
+  <% if session[:user_id] %>
+      <ul>
+        <li><%= link_to 'Orders',   orders_path   %></li>
+        <li><%= link_to 'Products', products_path %></li>
+        <li><%= link_to 'Users',    users_path    %></li>
+      </ul>
+      <%= button_to 'Logout', logout_path, method: :delete   %>
+  <% end %>
+
+
+
+
+
   <div id="main">
     <%= yield %>
   </div>
